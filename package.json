@@ -12,9 +12,7 @@
 		"start": "ts-node .dist/main.js",
 		"dev": "yarn nodemon",
 		"lint": "yarn eslint src/**/*.ts --fix",
-		"build": "yarn babel src/ --out-dir ./.dist/ --extensions \".ts\" --source-maps inline --quiet --copy-files",
-		"docker:build": "docker-compose up -d --build",
-		"docker:logs": "docker-compose logs -f"
+		"build": "yarn babel src/ --out-dir ./.dist/ --extensions \".ts\" --source-maps inline --quiet --copy-files"
 	},
 	"dependencies": {
 		"chalk": "^3.0.0",
@@ -42,6 +40,7 @@
 		"@types/jest": "^25.1.4",
 		"@types/lodash": "^4.14.149",
 		"@types/node": "^13.9.2",
+		"@types/prompts": "^2.0.5",
 		"body-parser": "^1.19.0",
 		"chai": "^4.2.0",
 		"cors": "^2.8.5",
@@ -52,6 +51,7 @@
 		"lodash": "^4.17.15",
 		"nodemon": "^2.0.2",
 		"pretty-quick": "^2.0.1",
+		"prompts": "^2.3.2",
 		"ts-node": "^8.8.1",
 		"typescript": "^3.8.3"
 	}

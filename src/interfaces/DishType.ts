@@ -1,4 +1,4 @@
-enum DishType {
+export enum DishType {
 	Takoyaki = 1,
 	Katsudon = 2,
 	Udon = 4,
