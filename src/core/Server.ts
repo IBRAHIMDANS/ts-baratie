@@ -1,8 +1,13 @@
 import chalk from 'chalk';
+import os from 'os';
+import cluster from 'cluster';
 
 export class Server {
 	public run(): void {
-		console.log(chalk.bold.magenta(`💫  hello world ${process.platform}`));
+		const params = process.argv.slice(2);
+		const nbCPUs = os.cpus().length;
+		console.log(`I have ${nbCPUs} CPUs availables`);
+		console.log(chalk.bold.magenta(`💫  hello world ${params}`));
 	}
 }
 
