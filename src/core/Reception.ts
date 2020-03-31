@@ -1,6 +1,7 @@
 import chalk from 'chalk';
-import os from 'os';
 import prompt from '../utils/prompt';
+import Kitchen from '../Kitchen/Kitchen';
+import KitchenFactory from '../Kitchen/KitchenFactory';
 
 export class Reception {
 	public static instance: Reception | null = null;
@@ -12,9 +13,9 @@ export class Reception {
 			: Reception.instance;
 	}
 
-	public run(): void {
-		const nbCPUs = os.cpus().length;
-		console.log(`I have 2 CPUs availables`);
+	public async run(): Promise<void> {
+		// const nbCPUs = os.cpus().length;
+		// console.log(`I have 2 CPUs availables`);
 		const multiplierCook = this.argv[2];
 		const numberCooks = this.argv[3];
 		const timeCooks = this.argv[4];
@@ -26,7 +27,14 @@ export class Reception {
         Time of cooks ==> ${timeCooks} /ms
         `),
 		);
-		const userPrompted = prompt().then();
+		const dish = await prompt()
+			.then(r => r)
+			.catch(error => console.log(error));
+
+		const kitchenFactory = new KitchenFactory();
+		const kitchen = new Kitchen(dish);
+		KitchenFactory.instance?.create();
+		//console.log(userPrompted)
 	}
 }
 

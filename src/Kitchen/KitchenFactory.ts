@@ -1,6 +1,6 @@
 import Kitchen from './Kitchen';
 import Cooker from '../Cooker/Cooker';
-import DishIngredients from '../interfaces/DishIngredients';
+import { DishIngredients } from '../interfaces/DishIngredients';
 
 export default class KitchenFactory {
 	public static instance: KitchenFactory | null = null;
@@ -13,7 +13,7 @@ export default class KitchenFactory {
 			: KitchenFactory.instance;
 	}
 
-	public create(): Kitchen {
+	public create() {
 		const stock: DishIngredients = {
 			octopus: 5,
 			sojaSauce: 5,
@@ -27,11 +27,11 @@ export default class KitchenFactory {
 			chocolate: 5,
 		};
 
-		const kitchen: Kitchen = new Kitchen(stock);
-		for (let i = 0; i < 5; i++) {
-			kitchen.addCooker(new Cooker());
-		}
-
-		return kitchen;
+		// const kitchen: Kitchen = new Kitchen(stock);
+		// for (let i = 0; i < 5; i++) {
+		//     kitchen.addCooker(new Cooker());
+		// }
+		//
+		// return kitchen;
 	}
 }

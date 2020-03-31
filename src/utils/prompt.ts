@@ -6,7 +6,7 @@ import readline from 'readline';
 
 export default async function prompt() {
 	if (process.argv.length >= 5) {
-		const rgx = /([a-zA-Z]+) ([a-zA-Z]+) x([0-9]+)/gi;
+		// const rgx = /([a-zA-Z]+) ([a-zA-Z]+) x([0-9]+)/gi;
 		const rl = readline.createInterface({
 			input: process.stdin,
 			output: process.stdout,

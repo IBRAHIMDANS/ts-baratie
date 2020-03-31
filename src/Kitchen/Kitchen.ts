@@ -1,11 +1,18 @@
 import { DishIngredients } from '../interfaces/DishIngredients';
+import Cooker from '../Cooker/Cooker';
 
 export default class Kitchen {
-	private readonly numberOfCookers: number;
+	dish: Promise<DishIngredients[]>;
 	private readonly ingredients: DishIngredients;
 
-	constructor(numberOfCookers: number) {
-		this.numberOfCookers = numberOfCookers;
+	constructor(
+		dish: {
+			disNumber: string;
+			dishSize: string | any;
+			dishName: string | any;
+		} | void,
+	) {
+		this.dish = dish;
 		this.ingredients = {
 			octopus: 5,
 			sojaSauce: 5,
@@ -18,5 +25,8 @@ export default class Kitchen {
 			matcha: 5,
 			chocolate: 5,
 		};
+	}
+	public addCooker(cooker: Cooker) {
+		console.log('add new cooker');
 	}
 }
