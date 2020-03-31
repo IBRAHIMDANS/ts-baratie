@@ -1,4 +1,4 @@
-export enum Dishsize {
+export enum DishSize {
 	S = 1,
 	M = 2,
 	L = 4,

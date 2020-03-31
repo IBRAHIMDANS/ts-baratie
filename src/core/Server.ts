@@ -10,7 +10,9 @@ export class Server {
 			.split(',');
 		const nbCPUs = os.cpus().length;
 		console.log(`I have ${nbCPUs} CPUs availables`);
-		prompt().then(r => r);
+		const userPrompted = prompt().then(r => {
+			console.log(r);
+		});
 		console.log(chalk.bold.magenta(`💫  hello world ${params}`));
 	}
 }

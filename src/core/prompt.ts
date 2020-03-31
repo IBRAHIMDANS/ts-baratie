@@ -1,31 +1,38 @@
 import prompts from 'prompts';
 import { DishType } from '../interfaces/DishType';
 import { enumToArray } from '../utils/enumToArray';
+import { DishSize } from '../interfaces/DishSize';
 
 export default async function prompt() {
-	console.log(enumToArray(DishType));
-	const response = await prompts([
+	const question = [
 		{
-			type: 'multiselect',
+			type: 'select',
 			name: 'dishName',
 			message: 'What did you choose ?',
-			//     choices: ,
+			choices: enumToArray(DishType),
+			initial: 0,
+		},
+		{
+			type: 'select',
+			name: 'dishSize',
+			message: 'What is size ?',
+			choices: enumToArray(DishSize),
+			initial: 0,
 		},
 		{
 			type: 'number',
-			name: 'dishSize',
-			message: 'What is size ?',
-			validate: dishName =>
-				typeof dishName !== 'string' ? `Please give me a dishName ` : true,
+			name: 'dishNumber',
+			message: 'What is number ?',
+			initial: 1,
 		},
-		{
-			type: 'text',
-			name: 'dishName',
-			message: 'What did you choose ?',
-			validate: dishName =>
-				typeof dishName !== 'string' ? `Please give me a dishName ` : true,
-		},
+	];
+	const [response] = await Promise.all([
+		prompts(question as any).then((result: any) => {
+			return {
+				dishName: result.dishName,
+				dishSize: result.dishSize,
+				disNumber: `x${result.dishNumber}`,
+			};
+		}),
 	]);
-
-	//console.log(response); // => { value: 24 }
 }
