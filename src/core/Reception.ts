@@ -5,7 +5,6 @@ import KitchenFactory from '../Kitchen/KitchenFactory';
 
 export class Reception {
 	public static instance: Reception | null = null;
-	public argv = process.argv;
 
 	public static getInstance() {
 		return Reception.instance === null
@@ -16,9 +15,7 @@ export class Reception {
 	public async run(): Promise<void> {
 		// const nbCPUs = os.cpus().length;
 		// console.log(`I have 2 CPUs availables`);
-		const multiplierCook = this.argv[2];
-		const numberCooks = this.argv[3];
-		const timeCooks = this.argv[4];
+		const [, , multiplierCook, numberCooks, timeCooks] = process.argv;
 		console.log(
 			chalk.bold.magenta(`
         💫  Welcome to Baratie 🙃 

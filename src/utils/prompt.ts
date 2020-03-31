@@ -11,7 +11,13 @@ export default async function prompt() {
 			input: process.stdin,
 			output: process.stdout,
 		});
+
 		rl.question('Waiting for orders: ', answer => {
+			if (answer === '') {
+				console.log(`Please enter [dishName] [dishSize] x[multiplier];`);
+				rl.close();
+				return false;
+			}
 			const arrayAnswer: {
 				dishName: string;
 				dishSize: string;

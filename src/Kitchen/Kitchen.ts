@@ -2,7 +2,11 @@ import { DishIngredients } from '../interfaces/DishIngredients';
 import Cooker from '../Cooker/Cooker';
 
 export default class Kitchen {
-	dish: Promise<DishIngredients[]>;
+	dish: {
+		disNumber: string;
+		dishSize: string | any;
+		dishName: string | any;
+	} | void;
 	private readonly ingredients: DishIngredients;
 
 	constructor(
