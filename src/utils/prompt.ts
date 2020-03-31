@@ -1,7 +1,7 @@
 import prompts from 'prompts';
-import { DishType } from '../interfaces/DishType';
-import { enumToArray } from '../utils/enumToArray';
-import { DishSize } from '../interfaces/DishSize';
+import { DishType } from '../enums/DishType';
+import { enumToArray } from './enumToArray';
+import { DishSize } from '../enums/DishSize';
 
 export default async function prompt() {
 	const question = [

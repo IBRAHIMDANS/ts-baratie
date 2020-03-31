@@ -1,5 +1,5 @@
 import './prelude';
 import './postlude';
-import Server  from './core/Server';
+import Reception from './core/Reception';
 
-Server.run();
+Reception.run();
