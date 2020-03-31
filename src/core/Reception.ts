@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import os from 'os';
+import prompt from '../utils/prompt';
 
 export class Reception {
 	public static instance: Reception | null = null;
@@ -13,13 +14,10 @@ export class Reception {
 
 	public run(): void {
 		const nbCPUs = os.cpus().length;
-		console.log(`I have ${nbCPUs} CPUs availables`);
+		console.log(`I have 2 CPUs availables`);
 		const multiplierCook = this.argv[2];
 		const numberCooks = this.argv[3];
 		const timeCooks = this.argv[4];
-		// const userPrompted = prompt().then(r => {
-		// 	console.log(r);
-		// });
 		console.log(
 			chalk.bold.magenta(`
         💫  Welcome to Baratie 🙃 
@@ -28,6 +26,9 @@ export class Reception {
         Time of cooks ==> ${timeCooks} /ms
         `),
 		);
+		const userPrompted = prompt().then(r => {
+			console.log(r);
+		});
 	}
 }
 
