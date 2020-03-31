@@ -10,7 +10,7 @@
 		"test:unit": "yarn jest --config=.jestrc.js --maxWorkers 2 --forceExit --coverage --no-cache",
 		"test": "yarn test:static && yarn test:unit",
 		"start": "ts-node .dist/main.js",
-		"dev": "yarn nodemon",
+		"dev": "yarn nodemon 2 5 2000",
 		"lint": "yarn eslint src/**/*.ts --fix",
 		"build": "yarn babel src/ --out-dir ./.dist/ --extensions \".ts\" --source-maps inline --quiet --copy-files"
 	},

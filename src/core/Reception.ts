@@ -12,10 +12,7 @@ export class Reception {
 	}
 
 	public run(): void {
-		const params = process.argv
-			.slice(2)
-			.toString()
-			.split(',');
+		const params = process.argv.slice(2);
 		const nbCPUs = os.cpus().length;
 		console.log(`I have ${nbCPUs} CPUs availables`);
 		const userPrompted = prompt().then(r => {
