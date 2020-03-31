@@ -26,9 +26,7 @@ export class Reception {
         Time of cooks ==> ${timeCooks} /ms
         `),
 		);
-		const userPrompted = prompt().then(r => {
-			console.log(r);
-		});
+		const userPrompted = prompt().then();
 	}
 }
 

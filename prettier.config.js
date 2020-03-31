@@ -13,4 +13,4 @@ module.exports = {
 	arrowParens: 'avoid',
 	allowTemplateLiterals: true,
 	bracketSpacing: true,
-}
+};

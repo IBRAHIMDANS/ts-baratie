@@ -12,13 +12,21 @@ export default async function prompt() {
 			output: process.stdout,
 		});
 		rl.question('Waiting for orders: ', answer => {
-			const arrayAnswer = answer.split(';');
-			arrayAnswer.map(item => {
-				console.log(item.match(rgx));
+			const arrayAnswer: {
+				dishName: string;
+				dishSize: string;
+				disNumber: string;
+			}[] = [];
+			answer.split(';').map(item => {
+				const ingredientsSplit = item.split(' ');
+				arrayAnswer.push({
+					dishName: ingredientsSplit[0],
+					dishSize: ingredientsSplit[1],
+					disNumber: ingredientsSplit[2],
+				});
 			});
-			console.log(`Ingredients: ${answer}`);
-
-			// rl.close();
+			rl.close();
+			return arrayAnswer;
 		});
 	} else {
 		const question = [

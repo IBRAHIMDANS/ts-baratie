@@ -1,4 +1,4 @@
-import DishIngredients from '../interfaces/DishIngredients';
+import { DishIngredients } from '../interfaces/DishIngredients';
 
 export default class Kitchen {
 	private readonly numberOfCookers: number;
